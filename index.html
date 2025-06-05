@@ -37,18 +37,7 @@
 
 <div class="section" id="fitness">
   <h2>💪 Fitness Gear</h2>
-    <div class="product">
-    <div class="product-title">Fit Simplify Resistance Loop Exercise Bands</div>
-    <a class="buy-button" href="https://www.amazon.com/dp/B01AVDVHTI?tag=rogeraragon-20" target="_blank">Buy on Amazon</a>
-  </div>
-  <div class="product">
-    <div class="product-title">Sunny Health & Fitness Mini Stepper with Resistance Bands</div>
-    <a class="buy-button" href="https://www.amazon.com/dp/B0098MAYNY?tag=rogeraragon-20" target="_blank">Buy on Amazon</a>
-  </div>
-  <div class="product">
-    <div class="product-title">TRX GO Suspension Trainer System</div>
-    <a class="buy-button" href="https://www.amazon.com/dp/B01N4I8FOY?tag=rogeraragon-20" target="_blank">Buy on Amazon</a>
-  </div>
+  <div class="product" id="dynamic-fitness"></div>
 </div>
 
 <div class="section" id="supplements">
@@ -66,6 +55,25 @@
     <a class="buy-button" href="https://www.amazon.com/dp/B000QSTBNS?tag=rogeraragon-20" target="_blank">Buy on Amazon</a>
   </div>
 </div>
+
+<script>
+  const fitnessProducts = [
+    { title: "Fit Simplify Resistance Loop Exercise Bands", url: "https://www.amazon.com/dp/B01AVDVHTI?tag=rogeraragon-20" },
+    { title: "Sunny Health & Fitness Mini Stepper with Resistance Bands", url: "https://www.amazon.com/dp/B0098MAYNY?tag=rogeraragon-20" },
+    { title: "TRX GO Suspension Trainer System", url: "https://www.amazon.com/dp/B01N4I8FOY?tag=rogeraragon-20" }
+  ];
+
+  const dayIndex = new Date().getDate() % fitnessProducts.length;
+  const fitness = fitnessProducts[dayIndex];
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("dynamic-fitness");
+    section.innerHTML = `
+      <div class="product-title">${fitness.title}</div>
+      <a class="buy-button" href="${fitness.url}" target="_blank">Buy on Amazon</a>
+    `;
+  });
+</script>
 
 </body>
 </html>
